@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spice Bag</title>
+  <meta name="description" content="Spice Bag — official links, socials, and upcoming gigs." />
+
+  <!-- Theme color matches current mode; JS updates this on toggle -->
+  <meta name="theme-color" content="#000000" id="theme-color-meta" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/favicon-180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon-192.png" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="Spice Bag" />
+  <meta property="og:description" content="Official links, socials, and upcoming gigs." />
+  <meta property="og:image" content="assets/favicon/favicon-512.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://spicebagmusic.ie" />
+
+  <!-- Prevent theme flash: set data-theme before first paint -->
+  <script>
+    (function () {
+      var stored = localStorage.getItem('spicebag-theme');
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light mode">
+    <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2" />
+      <path d="M12 2.5v2.6M12 18.9v2.6M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12h2.6M18.9 12h2.6M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8" stroke-linecap="round" />
+    </svg>
+    <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+      <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" stroke-linejoin="round" />
+    </svg>
+  </button>
+
+  <main class="wrap">
+
+    <header class="hero">
+      <img
+        id="logo"
+        class="logo"
+        src="assets/logo-light.png"
+        alt="Spice Bag"
+        width="900"
+        height="571"
+      />
+    </header>
+
+    <nav class="links" aria-label="Social links">
+      <a class="link-bar" href="https://www.instagram.com/spicebagmusic" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="link-label">Instagram</span>
+      </a>
+
+      <a class="link-bar" href="https://www.youtube.com/@spicebagmusic" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.3 9.3v5.4l4.9-2.7-4.9-2.7Z" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="link-label">YouTube</span>
+      </a>
+
+      <a class="link-bar" href="https://soundcloud.com/spicebagmusic" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 14v3M6 12v5M9 10.5v6.5M12 9.5v7.5" stroke-linecap="round"/><path d="M12 12.2c.4-1.6 1.8-2.7 3.4-2.7 2 0 3.6 1.6 3.6 3.6 0 .3 0 .6-.1.9H12.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="link-label">SoundCloud</span>
+      </a>
+
+      <a class="link-bar" href="https://www.facebook.com/spicebagmusic" target="_blank" rel="noopener">
+        <span class="link-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.5 21v-7.2h2.4l.4-2.9h-2.8V9.1c0-.8.2-1.4 1.4-1.4h1.5V5.1c-.3 0-1.1-.1-2.1-.1-2.1 0-3.6 1.3-3.6 3.7v2.2H9.3v2.9h2.4V21" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="link-label">Facebook</span>
+      </a>
+    </nav>
+
+    <section id="gigs" class="gigs" aria-label="Upcoming gigs" hidden>
+      <h2 class="gigs-heading">Gigs</h2>
+      <ul id="gigs-list" class="gigs-list"></ul>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Spice Bag</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

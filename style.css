@@ -1,0 +1,268 @@
+/* ---------------------------------------------------------
+   Spice Bag — bio link site
+   Design: Minimal Mono Card
+   Pure black / white backgrounds, one flame-red accent lifted
+   from the logo, single centered column.
+--------------------------------------------------------- */
+
+:root {
+  --accent: #c00708;
+  --accent-ink: #ffffff;
+
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
+
+  --content-width: 440px;
+  --edge: 24px;
+
+  --radius: 10px;
+}
+
+[data-theme="dark"] {
+  --bg: #000000;
+  --fg: #ffffff;
+  --muted: rgba(255, 255, 255, 0.56);
+  --border: rgba(255, 255, 255, 0.14);
+  --hover: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --fg: #000000;
+  --muted: rgba(0, 0, 0, 0.55);
+  --border: rgba(0, 0, 0, 0.13);
+  --hover: rgba(0, 0, 0, 0.045);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.45;
+  min-height: 100svh;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 76px var(--edge) 48px;
+}
+
+/* ---------- Theme toggle ---------- */
+
+.theme-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--hover);
+}
+
+.theme-toggle:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.theme-toggle .icon {
+  width: 19px;
+  height: 19px;
+  grid-area: 1 / 1;
+}
+
+.theme-toggle .icon-moon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: block;
+}
+
+/* ---------- Hero / logo ---------- */
+
+.hero {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 44px;
+}
+
+.logo {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  display: block;
+}
+
+/* ---------- Social links ---------- */
+
+.links {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+.link-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 6px;
+  border-bottom: 1px solid var(--border);
+  color: var(--fg);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.link-bar:hover,
+.link-bar:focus-visible {
+  background: var(--hover);
+}
+
+.link-icon {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  display: grid;
+  place-items: center;
+}
+
+.link-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.link-label {
+  flex: 1;
+}
+
+/* ---------- Gigs ---------- */
+
+.gigs {
+  margin-top: 52px;
+}
+
+.gigs-heading {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin: 0 0 4px;
+  color: var(--muted);
+}
+
+.gigs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.gig {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 16px 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.gig-date {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  white-space: nowrap;
+  flex: none;
+  width: 64px;
+}
+
+.gig-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.gig-venue {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.gig-city {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.gig-tickets {
+  flex: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 12px;
+  white-space: nowrap;
+}
+
+.gig-tickets:hover,
+.gig-tickets:focus-visible {
+  border-color: var(--fg);
+  background: var(--hover);
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  text-align: center;
+  padding: 8px var(--edge) 40px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 360px) {
+  .wrap {
+    padding-top: 64px;
+  }
+  .logo {
+    max-width: 260px;
+  }
+}

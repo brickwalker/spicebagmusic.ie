@@ -1,4 +1,4 @@
-# Spice Bag — bio link site
+# Spicebag — bio link site
 
 A tiny static site for Instagram bio-link use and as the standalone site at
 `spicebagmusic.ie`. No build step, no frameworks — just HTML, CSS and JS.

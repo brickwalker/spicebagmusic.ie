@@ -23,24 +23,29 @@ Open `gigs.json` and edit the array. Each gig looks like this:
 
 ```json
 {
-  "date": "2026-10-24",
+  "date": "2026-10-24 20:30",
   "venue": "Whelan's",
   "city": "Dublin",
+  "description": "Acoustic performance at Tetiana Tsarenko's art exhibition opening",
   "ticketUrl": "https://www.whelanslive.com"
 }
 ```
 
-- `date` — required, format `YYYY-MM-DD`.
+- `date` — required. Either `YYYY-MM-DD` (no time shown) or
+  `YYYY-MM-DD HH:MM` (24-hour clock; the time is shown under the date).
 - `venue` — required.
 - `city` — optional.
+- `description` — optional. A short line shown under the venue/city.
 - `ticketUrl` — optional. Leave as `""` or omit it and the row just won't
   have a "Tickets" button.
 
 Notes on behaviour:
 - Gigs are sorted automatically by date (soonest first).
-- Gigs with a date in the past are filtered out automatically, so you can
-  leave old shows in the file if you want a record of them — they just
-  won't display.
+- Gigs on a past date are filtered out automatically, so you can leave old
+  shows in the file if you want a record of them — they just won't display.
+  A gig stays visible for the whole of its day, even after its start time.
+- Gigs with an invalid `date` (e.g. `2026-02-31` or `2026-10-24 8pm`) are
+  skipped.
 - If `gigs.json` is `[]` (empty array), or every gig in it is in the past,
   the whole "Gigs" section disappears from the page — no empty heading left
   behind.
@@ -73,43 +78,4 @@ on `spicebagmusic.ie`. You still need to point the domain's DNS at GitHub:
   185.199.111.153
   ```
 - If you also want `www.spicebagmusic.ie` to work, add a **CNAME record**
-  for `www` pointing to `<username>.github.io`.
-
-**Back in the repo:**
-
-- Go to **Settings → Pages → Custom domain**, enter `spicebagmusic.ie`,
-  and save (this is already primed by the CNAME file, but GitHub needs you
-  to confirm it once in the UI).
-- Once DNS has propagated (can take a few minutes to a few hours), tick
-  **Enforce HTTPS**.
-
-## Using it as an Instagram bio link
-
-Once the domain is live, set your Instagram bio link to
-`https://spicebagmusic.ie`. The page is a single mobile-first column, so it
-works well as a link-in-bio landing page as-is.
-
-## Replacing the logo
-
-If you get an updated logo, export two versions the same way as the current
-ones:
-- `assets/logo-dark.png` — the version shown on the black background
-  (light-coloured logo, transparent background).
-- `assets/logo-light.png` — the version shown on the white background
-  (dark-coloured logo, transparent background).
-
-Keep both as PNGs with a transparent background so they sit flush against
-the page background with no visible edge.
-
-## Local preview
-
-Because the page fetches `gigs.json` with `fetch()`, opening `index.html`
-directly via `file://` will silently skip the gigs section in most browsers
-(fetch is blocked on `file://`). To preview properly, run a tiny local
-server from this folder:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then open `http://localhost:8000`.
+  for `www` pointing to `

@@ -221,6 +221,17 @@ button:focus-visible {
   width: 64px;
 }
 
+.gig-day,
+.gig-time {
+  display: block;
+}
+
+.gig-time {
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
 .gig-info {
   flex: 1;
   min-width: 0;
@@ -233,6 +244,13 @@ button:focus-visible {
 
 .gig-city {
   font-size: 13px;
+  color: var(--muted);
+}
+
+.gig-desc {
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.4;
   color: var(--muted);
 }
 
